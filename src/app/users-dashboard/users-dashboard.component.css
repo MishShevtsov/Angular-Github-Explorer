@@ -1,0 +1,21 @@
+.img-demo {
+    width:100px;
+}
+
+.serch-container {
+    justify-content: space-between;
+    border: 1px solid #000000;
+    align-items: center;
+    box-shadow: 0px 10px 10px 1px rgba(34, 34, 37, 0.2);
+    margin: 0 0 1rem 0;
+}
+
+.button-group {
+    width: 10rem;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+
+.list-group-item {
+    margin: .6rem;
+}

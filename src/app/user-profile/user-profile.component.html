@@ -1,0 +1,34 @@
+<div class="user-description">
+    <div class="d-flex align-items-center justify-content-between user-header">
+        <img [src]="userDate.avatar_url" alt="" class="rounded-circle avatar" >
+        <div class="user-login">{{userDate.login}}</div>
+        <a [href]="userDate.html_url" target="_blank">View on GitHub</a>
+    </div>
+        
+        <div class="list-group list-group-flush">
+        
+            <div *ngIf='userDate.name' class="list-group-item">{{userDate.name}}</div>
+            <div *ngIf='userDate.created_at' class="list-group-item">{{userDate.created_at}}</div>
+            <div *ngIf='userDate.location; else defLocation' class="list-group-item">{{userDate.location}}</div>
+                <ng-template #defLocation>  
+                    <div class="list-group-item">3rd Rock from the Sun</div>  
+                </ng-template>
+            <div *ngIf='userDate.company; else defCompany' class="list-group-item">{{userDate.company}}</div>
+                <ng-template #defCompany>  
+                    <div class="list-group-item">Death Star</div>  
+                </ng-template>
+            <div *ngIf='userDate.email; else defEmail' class="list-group-item">{{userDate.email}}</div>
+                <ng-template #defEmail>  
+                    <div class="list-group-item">myEmail@send.me</div>  
+                </ng-template>
+        </div>
+        <div *ngIf='repos.length === 0' class="alert alert-warning" role="alert"><h4>There are not any repos from this user</h4></div>
+        <div class="repo-list">
+            <div class="repo-h">Repos</div>
+            <div class="row">
+                <div *ngFor='let repo of repos' class="col-sm-3">
+                    <a [href]="repo.html_url" target="_blank">{{repo.name}}</a>
+                </div>
+            </div>
+        </div>
+</div>

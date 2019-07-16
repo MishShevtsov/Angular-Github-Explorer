@@ -1,0 +1,12 @@
+.home {
+    height: 60vh;
+}
+
+.home-img {
+    width:50%;
+}
+
+.home-img,
+.home-text {
+    padding: 1rem;
+}
