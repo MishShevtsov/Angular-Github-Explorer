@@ -10,7 +10,7 @@
             </div>
     </div>
     <ul class="list-group">
-        <li *ngFor='let user of usersList' class="d-flex flex-row align-items-center list-group-item justify-content-between">
+        <li *ngFor='let user of usersList | paginate: { itemsPerPage: 20, currentPage: p }' class="d-flex flex-row align-items-center list-group-item justify-content-between">
             <div class="d-flex align-items-center">
                 <img [src]="user.avatar_url" alt="" class="img-demo rounded-circle">
                 <div class="user-login">{{user.login}}</div>
@@ -22,6 +22,9 @@
                     </button>
             </div>
         </li>
+        <div class="list d-flex justify-content-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
     </ul>
 
     <h3 *ngIf="usersList.length == 0" class="alert alert-warning" role="alert">We didn't find any resalt</h3>
